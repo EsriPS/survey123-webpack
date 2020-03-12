@@ -1,0 +1,10 @@
+{
+  "string": "Lorem ipsum",
+  "number": 123,
+  "boolean": true,
+  "object": {
+    "string": "dolor sit amet",
+    "number": 456,
+    "boolean": false
+    }
+}
