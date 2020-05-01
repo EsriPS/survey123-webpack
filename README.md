@@ -8,12 +8,41 @@ Clone this repository to any location on your machine.  Once downloaded run `npm
 ## Developing with the Extensions
 Most mode modules can be included in the WebPack for the Javascript libraries.  Simply develop the functions in JavaScript as you would any other JS functions.  
 
-Run `npm build` to create the packed version of your extension.  Make sure the output of the webpack is included in the extensions directory of the Survey (either in the My Survey Designs folder if testing in Survey123 Connect or the My Surveys directory if testing in Survey123)
+Run `npm build` to create the packed version of your extension that can be included in the Extensions directory of your Survey.
 
 This library contains the JavaScript functions used by Survey123 in addtion to polyfills needed to support more advanced functions.  This are included in the `survey123\lib.js` library.
 
 ### Including the Extension in your Survey
 Once you have developed you library and are ready to include in your Survey.  Make sure to include in the extension directory.  You can create a symbolic link from the webpack out file into the Surveys extension directory.  
+
+To call the function from within the survey you call use a calculation on a field to get data.  
+`pulldata("@javascript", "<Name of the Extension file>.js", "<Name of the Extension file>.<name of the function>",<parameters comma seperated list>)`
+
+`pulldata("@javascript", "MyLibrary.js", "MyLibrary.reprojectPoint",${x}, ${y})`
+MyLibrary.js is the resulting javascript file stored in the extensions directory
+MyLibrary.reprojectPoint this will call the reprojectPoint function inside the index.js file
+${x}, ${y} these are parameters that are passed into the function
+
+```
+export function reprojectPoint(x, y) {
+  try{
+    if(isNaN(x) || isNaN(y)){
+      return "Please provide numbers for x or y"
+    }
+
+    if(!isFinite(x) || !isFinite(y))
+    {
+      return "Please provide finite numbers for x or y"
+    }
+
+    //https://spatialreference.org/ref/epsg/indian-1960-utm-zone-48n/proj4/
+    var projectTo = "+proj=utm +zone=48 +a=6377276.345 +b=6356075.41314024 +units=m +no_defs";
+    return proj4(projectTo,[x,y]);
+  }catch{
+    return ""
+  }
+}
+```
 
 ### Samples
 Please visit the Wiki page for Sample on how to use the functions inside Survey123
