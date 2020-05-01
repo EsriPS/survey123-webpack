@@ -12,6 +12,9 @@ Run `npm build` to create the packed version of your extension that can be inclu
 
 This library contains the JavaScript functions used by Survey123 in addtion to polyfills needed to support more advanced functions.  This are included in the `survey123\lib.js` library.
 
+The functions you create will all be in the index.js file.  Each function here can be linked to a question including the ability to output console.log statements to a console question.
+
+
 ### Including the Extension in your Survey
 Once you have developed you library and are ready to include in your Survey.  Make sure to include in the extension directory.  You can create a symbolic link from the webpack out file into the Surveys extension directory.  
 
