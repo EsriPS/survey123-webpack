@@ -5,7 +5,7 @@ With newer releases of Survey123 you are allowed to extend the function of a que
 Clone this repository to any location on your machine.  The JavaScript functions for Survey123 will get installed in the Extensions directory for the Survey.  
 ---ADD IMAGE HERE---
 
-## Developing with the Extensions**
+## Developing with the Extensions
 Most mode modules can be included in the WebPack for the Javascript libraries.  Simply develop the functions in JavaScript as you would any other JS functions.  
 
 Run `npm build` to create the packed version of your extension.  Make sure the output of the webpack is included in the extensions directory of the Survey (either in the My Survey Designs folder if testing in Survey123 Connect or the My Surveys directory if testing in Survey123)
