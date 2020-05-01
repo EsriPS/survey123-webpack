@@ -3,7 +3,7 @@
   "number": 123,
   "boolean": true,
   "object": {
-    "string": "What up Yo Gabba!",
+    "string": "Lorem ipsum!",
     "number": 456,
     "boolean": false
     }
