@@ -16,5 +16,5 @@ module.exports = {
       }
     ]
   },
-  mode: "dev",
+  mode: "production",
 };
