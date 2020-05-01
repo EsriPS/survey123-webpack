@@ -17,4 +17,4 @@ Once you have developed you library and are ready to include in your Survey.  Ma
 
 ### Samples
 Please visit the Wiki page for Sample on how to use the functions inside Survey123
-- Projecting from WGS84 to another projection
+- Projecting from WGS84 to another projection (https://github.com/EsriPS/survey123-webpack/wiki/Sample:--Projecting-a-Point-from-WGS84-to-another-projection)
