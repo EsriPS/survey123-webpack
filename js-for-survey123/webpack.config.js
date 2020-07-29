@@ -5,16 +5,16 @@ module.exports = {
   output: {
     filename: 'MyLibrary.js',
     path: path.resolve('../WebpackJS/extensions'),
-    library: "MyLibrary",
-    libraryTarget: "var",
+    library: 'MyLibrary',
+    libraryTarget: 'var',
   },
   module: {
     rules: [
       {
         test: /\.txt$/,
-        use: 'raw-loader'
-      }
-    ]
+        use: 'raw-loader',
+      },
+    ],
   },
-  mode: "production",
+  mode: 'production',
 };
