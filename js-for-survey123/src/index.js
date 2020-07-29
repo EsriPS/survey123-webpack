@@ -15,34 +15,33 @@ export function importJson() {
 
 export function fetchTest() {
   console.log(`\`${globals.libraryName}.importText\` method invoked`);
-  return fetchSync("http://aero.esri.com/arcgis/rest/services?f=pjson")
-    .json()
+  return fetchSync('http://aero.esri.com/arcgis/rest/services?f=pjson').json()
     .currentVersion;
 }
 
 export function reprojectPoint(x, y) {
-  try{
-  if(isNaN(x) || isNaN(y)){
-    return "Please provide numbers for x or y"
-  }
+  try {
+    if (isNaN(x) || isNaN(y)) {
+      return 'Please provide numbers for x or y';
+    }
 
-  if(!isFinite(x) || !isFinite(y))
-  {
-    return "Please provide finite numbers for x or y"
-  }
+    if (!isFinite(x) || !isFinite(y)) {
+      return 'Please provide finite numbers for x or y';
+    }
 
-  //https://spatialreference.org/ref/epsg/indian-1960-utm-zone-48n/proj4/
-  var projectTo = "+proj=utm +zone=48 +a=6377276.345 +b=6356075.41314024 +units=m +no_defs";
-  return proj4(projectTo,[x,y]);
-}catch{
-  return ""
-}
+    //https://spatialreference.org/ref/epsg/indian-1960-utm-zone-48n/proj4/
+    var projectTo =
+      '+proj=utm +zone=48 +a=6377276.345 +b=6356075.41314024 +units=m +no_defs';
+    return proj4(projectTo, [x, y]);
+  } catch (e) {
+    return '';
+  }
 }
 
 export function getConsole() {
-  return console.getOutput({sizeLimit: 4096});
+  return console.getOutput({ sizeLimit: 4096 });
 }
 
-export { dev }  from './survey123/lib.js';
+export { dev } from './survey123/lib.js';
 
-export { debugTerminal }  from './survey123/lib.js';
+export { debugTerminal } from './survey123/lib.js';
