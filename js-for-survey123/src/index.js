@@ -14,7 +14,7 @@ export function importJson() {
 }
 
 export function fetchTest() {
-  console.log(`\`${globals.libraryName}.importText\` method invoked`);
+  console.log(`\`${globals.libraryName}.fetchTest\` method invoked`);
   return fetchSync('http://aero.esri.com/arcgis/rest/services?f=pjson').json()
     .currentVersion;
 }
