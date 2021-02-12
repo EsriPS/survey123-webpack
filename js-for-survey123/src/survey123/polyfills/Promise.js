@@ -266,12 +266,13 @@ Promise.race = function (arr) {
 // Use polyfill for setImmediate for performance gains
 Promise._immediateFn =
   // @ts-ignore
-  //(typeof setImmediate === 'function' &&
-  //  function(fn) {
-  //    // @ts-ignore
-  //    setImmediate(fn);
-  //  }) ||
-  function (fn) {
+  /* EDITED: `setImmediate` is in global scope, but uses `setTimeout` (which is not)
+  (typeof setImmediate === 'function' &&
+    function(fn) {
+      // @ts-ignore
+      setImmediate(fn);
+    }) ||*/
+  function(fn) {
     setTimeoutFunc(fn, 0);
   };
 
