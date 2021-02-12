@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'MyLibrary.js',
-    path: path.resolve('../WebpackJS/extensions'),
+    path: path.resolve('../WebpackJS/scripts'),
     library: 'MyLibrary',
     libraryTarget: 'var',
   },
