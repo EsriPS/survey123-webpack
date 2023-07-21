@@ -42,19 +42,24 @@ function createPolygons(polygons) {
       }
     }
 
-    var checkPolygon = helpers.polygon(output);
-    return checkPolygon;
+export function fetchTest(url, where, token) {
+  try {
+    var queryString = url + "/query?f=json&outfields=*";
+    if (where) queryString += "&where=" + where;
+    console.log(queryString);
+    return JSON.stringify(fetchSync(queryString).json());
   } catch (e) {
-    return { message: e.message };
+    return JSON.stringify({ error: e.message });
   }
 }
 
-function groupPolygons(polygons) {
-  if (polygons.length != 0) {
-    try {
-      return JSON.stringify(polygons);
-    } catch (e) {
-      return JSON.stringify({ error: e.message });
+export function getExtent(geometry){
+  
+}
+export function reprojectPoint(x, y) {
+  try {
+    if (isNaN(x) || isNaN(y)) {
+      return "Please provide numbers for x or y";
     }
   } else {
     return JSON.stringify({ error: "Must have at least one polygon in Area" });
